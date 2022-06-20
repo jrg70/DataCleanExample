@@ -5,10 +5,14 @@ def pad_csd(num):
     return str(num).zfill(2)
 
 def find_lat(loc):
+    coords = re.findall("\(.+\)", loc)
     lat = coords[0].split(",")[0].replace("(", "")
-    lon = coords[0].split(",")[1].replace(")", "").strip()
-    return lat, lon
+    return lat
 
+def find_lon(loc):
+    coords = re.findall("\(.+\)", loc)
+    lon = coords[0].split(",")[1].replace(")", "").strip()
+    return lon
 
 if __name__ == '__main__': 
 
