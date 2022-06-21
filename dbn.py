@@ -131,3 +131,5 @@ combined['school_dist'] = combined['DBN'].apply(reduce)
 
 ## Analysis
 # Check correlations
+correlations = combined.corr()["sat_score"]
+print(correlations)
