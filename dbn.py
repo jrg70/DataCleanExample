@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import re
+import matplotlib.pyplot as plt
 
 def pad_csd(num):
     return str(num).zfill(2)
@@ -133,3 +134,7 @@ combined['school_dist'] = combined['DBN'].apply(reduce)
 # Check correlations
 correlations = combined.corr()["sat_score"]
 print(correlations)
+
+# visualise example
+combined.plot.scatter(x='total_enrollment', y='sat_score')
+plt.show()
