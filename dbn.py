@@ -6,11 +6,11 @@ import matplotlib.pyplot as plt
 def pad_csd(num):
     return str(num).zfill(2)
 
+# location functions to extract that information
 def find_lat(loc):
     coords = re.findall("\(.+\)", loc)
     lat = coords[0].split(",")[0].replace("(", "")
     return lat
-
 def find_lon(loc):
     coords = re.findall("\(.+\)", loc)
     lon = coords[0].split(",")[1].replace(")", "").strip()
