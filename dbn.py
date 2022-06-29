@@ -109,17 +109,5 @@ if __name__ == '__main__':
     for col in cols:
         data["ap_2010"][col] = pd.to_numeric(data["ap_2010"][col], errors="coerce")
 
-    # MERGE data
-    # Stragtegy: left  to preserve most SAT results
-    combined = data["sat_results"]
 
-    to_merge = ["ap_2010","graduation"]
-    for m in to_merge:
-        combined = combined.mege(data[m], on='DBN', how='left')
-
-    to_merge = ["class_size", "demographics", "survey", "hs_directory"]
-    for m in to_merge:
-        combined = combined.merge(data[m], on="DBN", how="inner")
-
-    print(combined.shape, combined.head(5))
 
