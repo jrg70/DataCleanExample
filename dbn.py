@@ -123,18 +123,3 @@ if __name__ == '__main__':
 
     print(combined.shape, combined.head(5))
 
-    # (imputation) fill Nans with mean and for columns with mean Nan 0
-    combined = combined.fillna(combined.mean())
-    combined = combined.fillna(0)
-
-    # Analysation aid
-    combined['school_dist'] = combined['DBN'].apply(reduce)
-
-    ## Analysis
-    # Check correlations
-    correlations = combined.corr()["sat_score"]
-    print(correlations)
-
-    # visualise example
-    combined.plot.scatter(x='total_enrollment', y='sat_score')
-    plt.show()
